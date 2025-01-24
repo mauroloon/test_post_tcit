@@ -1,0 +1,1 @@
+from post.serializers.post_serializers import PostSerializer
