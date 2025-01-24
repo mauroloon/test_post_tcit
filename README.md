@@ -8,5 +8,8 @@ Challenge de desarrollo
 - cd backend
 - pip install -r requirements.txt
 
+# Inicializar postgres
+- docker run --name postsDB -p 5432:5432 -e POSTGRES_PASSWORD=admin123 -d postgres
+
 # Instalar migraciones (opcionales para este proyecto)
 - python manage.py migrate
