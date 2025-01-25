@@ -25,8 +25,12 @@ class PostServices(APIView):
         if serializer.is_valid():
             name = serializer.data['name']
             description = serializer.data['description']
-            self.post_logic.create_post(name, description)
-            return Response(serializer.data, status=200)
+            post_created = self.post_logic.create_post(name, description)
+            return Response({
+                'id': post_created.id,
+                'name': name,
+                'description': description
+            }, status=200)
         
         return Response(serializer.errors, status=400)
     
