@@ -111,12 +111,6 @@ a.secondary {
   padding: 8px;
 }
 
-/* Eliminar estos estilos ya que ahora están en Table.module.css */
-/* .table { ... } */
-/* .table th, .table td { ... } */
-/* .table th { ... } */
-/* .deleteButton { ... } */
-/* .deleteButton:hover { ... } */
 
 .form {
   display: flex;
