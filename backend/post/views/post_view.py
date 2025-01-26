@@ -8,6 +8,12 @@ class PostServices(APIView):
     post_logic = PostLogic()
 
     def get(self, request):
+        """
+        Obtiene todos los posts activos
+
+        Returns:
+            - Response: Posts activos o vacío
+        """
 
         posts = self.post_logic.get_all_posts_active()
 
@@ -16,7 +22,18 @@ class PostServices(APIView):
         return Response(serializer.data, status=200)
     
 
-    def post(self, request):
+    def post(self, request) -> Response:
+        """
+        Crea un post
+
+        args:
+            - request: Request de la vista
+                - name (str): Nombre del post
+                - description (str): Descripción del post
+
+        Returns:
+            - Response: Post creado o errores
+        """
         
         # NOTE: Si se extendiera este código, llevarlo a un archivo de Servicio
         # para mantener la vista lo más limpio posible y poder ocupar en cualquier otro lugar
@@ -34,7 +51,16 @@ class PostServices(APIView):
         
         return Response(serializer.errors, status=400)
     
-    def delete(self, request, id):
+    def delete(self, request, id: str) -> Response:
+        """
+        Deshabilita un post si está activo
+
+        args:
+            - id (str): Id del post
+
+        Returns:
+            - Response: Post Deshabilitado o None
+        """
 
         post_deleted = self.post_logic.delete_post(id)
 
